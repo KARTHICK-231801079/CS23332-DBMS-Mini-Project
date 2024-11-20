@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ZeroTrace: Track Your Carbon Footprint</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-image: url("{{ url_for('static', filename='images/about.avif') }}");
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #007ACC;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content Styling */
+        section {
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007ACC;
+            font-size: 2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007ACC;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Features & Technologies Lists Styling */
+        .features, .technologies {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .features li, .technologies li {
+            background-color: #f0f8ff;
+            margin-bottom: 12px;
+            padding: 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .features li:hover, .technologies li:hover {
+            background-color: #e3f2fd;
+            transform: translateY(-3px);
+        }
+
+        /* Footer Styling */
+        footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* Ensures footer stays on top */
+}
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 20px 15px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .features li, .technologies li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    About ZeroTrace: Track Your Carbon Footprint
+</header>
+
+<section>
+    <h2>Project Overview</h2>
+    <p>The Carbon Emission Dashboard helps individuals and organizations calculate, track, and reduce their carbon footprint. By entering daily consumption data, users can calculate emissions from electricity, petrol, diesel, wastewater, and natural gas. This helps raise awareness about the environmental impact of everyday activities and encourages sustainable living.</p>
+
+    <h2>Features</h2>
+    <ul class="features">
+        <li>Carbon Emission Calculators for various sources</li>
+        <li>Comparison of calculated emissions with global sustainability standards</li>
+        <li>Graphical representation of historical emissions data</li>
+    </ul>
+
+    <h2>Technologies Used</h2>
+    <ul class="technologies">
+        <li>Backend: Python, Flask</li>
+        <li>Database: MySQL</li>
+        <li>Frontend: HTML, CSS, JavaScript</li>
+        <li>Visualization: Plotly</li>
+    </ul>
+
+    <h2>Our Vision</h2>
+    <p>Our goal is to provide individuals and organizations with the tools and knowledge to better understand and reduce their carbon emissions, contributing to a healthier planet.</p>
+
+    <h2>How to Use the Dashboard</h2>
+    <p>1. Input your daily consumption data in the calculator.</p>
+    <p>2. View your total carbon emissions and compare them with global standards.</p>
+    <p>3. Check out historical emissions trends through interactive graphs.</p>
+
+    <h2>Credits</h2>
+    <p>This project was developed by <strong>Karthick S</strong> and <strong>Jegadeeswaran D</strong> at <strong>Silent Dreams</strong>. Special thanks to the Plotly team for their charting library.</p>
+</section>
+
+<footer>
+    &copy; 2024 Archive of Silent Dreams | All Rights Reserved
+</footer>
+
+</body>
+</html>

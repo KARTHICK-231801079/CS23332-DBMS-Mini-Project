@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        form {
+            max-width: 400px;
+            width: 100%;
+            background-color: aliceblue;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form input[type="password"]:focus {
+            border-color: #007ACC;
+            outline: none;
+        }
+
+        form input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .terms a {
+            color: #007ACC;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007ACC;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #005999;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="{{ url_for('signup') }}">
+        <h1>Sign Up</h1>
+        
+        <label for="fst">First Name</label>
+        <input type="text" id="fst" name="Fst" placeholder="Enter your First Name" required>
+
+        <label for="lat">Last Name</label>
+        <input type="text" id="lat" name="lat" placeholder="Enter your Last Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+
+        <label for="psw">Password</label>
+        <input type="password" id="psw" name="psw" placeholder="Enter your Password" required>
+
+        <div class="terms">
+            <input type="checkbox" id="checkbox" required>
+            <label for="checkbox">I agree to these <a href="#">Terms and Conditions</a></label>
+        </div>
+
+        <button type="submit">Sign Up</button>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="flash {{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+</form>
+</body>
+</html>
+
+
+
+
+    

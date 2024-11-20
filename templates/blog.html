@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Emission Blog</title>
+    <!-- Google Font for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">  <!-- Added Roboto font -->
+    <style>
+        /* General body styling */
+        body {
+    background-image: url("{{ url_for('static', filename='images/homebg.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensures full height of body */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    transition: background-color 0.3s ease;
+}
+/* Header Styling */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark translucent header */
+    color: #fff;
+    padding: 20px 20px;
+    text-align: center;
+    font-size: 2.5em;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Bar Styling */
+nav {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent navbar */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00bfae; /* Light teal color on hover */
+    transform: scale(1.1);
+}
+
+/* Main Content Section (adjusting for step-by-step layout) */
+.main-content {
+    padding: 40px 20px;
+    margin-top: 30px; /* Adds space between the nav bar and main content */
+    margin-bottom: 50px; /* Prevents overlap with the fixed footer */
+}
+
+/* Section Styling */
+.intro-section, .features-section, .importance-section, .blog-section {
+    width: 100%; /* Changed to 100% to stack sections vertically */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 30px; /* Adds space between sections */
+}
+
+.intro-section:hover, .features-section:hover, .importance-section:hover, .blog-section:hover {
+    transform: scale(1.03);
+}
+
+.section-title {
+    color: #38b6ff;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.section-content {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+.highlight {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.post {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.post h3 {
+    color: #38b6ff;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.post ul {
+    margin-left: 20px;
+    list-style-type: disc;
+    line-height: 1.8;
+}
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* Ensures footer stays on top */
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+/* Ensure no overflow or extra spacing at the bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+    </style>
+</head>
+<body>
+
+<header>Carbon Emission Blog</header>
+
+<nav>
+    <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#importance">Importance</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#blog">Blog</a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <!-- Introduction Section -->
+    <section class="intro-section" id="intro">
+        <h2 class="section-title">Welcome to the Carbon Emission Dashboard Blog</h2>
+        <p class="section-content">
+            Our world is facing increasing environmental challenges, and tracking carbon emissions is a vital step in mitigating climate change. The <strong>Carbon Emission Dashboard</strong> provides an intuitive and user-friendly tool that helps individuals and organizations monitor and reduce their carbon footprint. In this blog, we will explore why tracking carbon emissions is important, and how our dashboard can help.
+        </p>
+    </section>
+
+    <!-- Importance of Carbon Emissions -->
+    <section class="importance-section" id="importance">
+        <h2 class="section-title">Why Tracking Carbon Emissions Matters</h2>
+        <p class="section-content">
+            The carbon footprint of individuals, businesses, and even nations is a key metric that can drive sustainability efforts. <span class="highlight">Carbon emissions</span> from electricity, transportation, industry, and waste are a major contributor to global warming. Reducing these emissions is essential to limit climate change and achieve environmental goals.
+        </p>
+        <p class="section-content">
+            By measuring carbon emissions, we can:
+            <ul>
+                <li>Understand the sources of emissions and their impact on the environment.</li>
+                <li>Make informed decisions to reduce our carbon footprint.</li>
+                <li>Track progress towards sustainability goals.</li>
+                <li>Contribute to global efforts to combat climate change.</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- Key Features of the Dashboard -->
+    <section class="features-section" id="features">
+        <h2 class="section-title">Features of the Carbon Emission Dashboard</h2>
+        <p class="section-content">
+            Our Carbon Emission Dashboard comes packed with powerful features designed to help you take control of your environmental impact:
+            <ul>
+                <li><strong>Carbon Footprint Calculator:</strong> Calculate your carbon emissions from various sources like electricity, diesel, gas, and wastewater.</li>
+                <li><strong>Historical Comparison:</strong> Track and compare your emissions over time to see how much progress you're making.</li>
+                <li><strong>Top 3 Emissions:</strong> View which sources contribute most to your carbon footprint, so you can focus on the biggest areas for improvement.</li>
+                <li><strong>Global Comparison:</strong> Compare your emissions with global sustainability standards and find out how you stack up.</li>
+                <li><strong>Interactive Graphs:</strong> Visualize world carbon data with easy-to-read charts and graphs.</li>
+            </ul>
+        </p>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <h2 class="section-title">Latest Posts</h2>
+
+        <div class="post">
+            <h3>Reducing Your Carbon Footprint</h3>
+            <p>In today's world, reducing our carbon footprint is one of the most important actions we can take to combat climate change. Small lifestyle changes, such as using energy-efficient appliances, adopting sustainable transportation methods, and reducing waste, can significantly reduce the amount of carbon dioxide we release into the atmosphere.</p>
+            <p>Here are a few simple steps to get started:</p>
+            <ul>
+                <li>Switch to renewable energy sources like solar or wind power.</li>
+                <li>Drive less or switch to electric vehicles.</li>
+                <li>Install energy-efficient lighting and appliances in your home.</li>
+                <li>Recycle and reduce waste to minimize landfill emissions.</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<footer>&copy; 2024 Archive of Silent Dreams. All Rights Reserved.</footer>
+
+</body>
+</html>

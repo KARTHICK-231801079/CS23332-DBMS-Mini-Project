@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stored Emissions</title>
+    <style>
+        html, body {
+            height: 100%; /* Make sure both html and body take up the full height */
+            margin: 0; /* Remove any default margin */
+            padding: 0; /* Remove any default padding */
+        }
+
+        body {
+            background-image: url("{{ url_for('static', filename='images/Scene-24.jpg') }}");
+            background-size: cover; /* Ensure the image covers the whole screen */
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Roboto', sans-serif;
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensures content is spread out if needed */
+            height: 100%; /* Ensure the body takes up the full height */
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-grow: 1; /* Allow the container to grow and fill the available space */
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            color: #38b6ff;
+            margin-bottom: 40px;
+            letter-spacing: 1.5px;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden; /* Prevent overflow for rounded corners */
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: center;
+            font-size: 1.1em;
+            border: none;
+            color: #555;
+        }
+
+        th {
+            background: linear-gradient(90deg, #38b6ff, #5fa8ff);
+            color: white;
+            font-weight: bold;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        td {
+            background-color: #f9f9f9;
+            color: #555;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover td {
+            background-color: #e0f7fa;
+            cursor: pointer;
+        }
+
+        tr:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            th, td {
+                font-size: 1em;
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>All Stored Calculations</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Electricity</th>
+                <th>Petrol</th>
+                <th>Diesel</th>
+                <th>Wastewater</th>
+                <th>Gas</th>
+                <th>Total Emission</th>
+            </tr>
+            {% for calculation in calculations %}
+            <tr>
+                <td>{{ calculation.name }}</td>
+                <td>{{ calculation.electricity }}</td>
+                <td>{{ calculation.petrol }}</td>
+                <td>{{ calculation.diesel }}</td>
+                <td>{{ calculation.wastewater }}</td>
+                <td>{{ calculation.gas }}</td>
+                <td>{{ calculation.total_emission }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

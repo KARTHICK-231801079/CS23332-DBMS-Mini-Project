@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General body styling */
+        body {
+            background-image: url("{{ url_for('static', filename='images/homebg2.jpg') }}");
+            background-size: cover; /* Ensure the image covers the whole screen */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            padding: 5%;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Centered header styling */
+        h1 {
+            text-align: center;
+            color: #007ACC;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Form container styling */
+        form {
+            background-color: #8FC1A9;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Add subtle scale effect on hover */
+        form:hover {
+            transform: scale(1.02);
+        }
+
+        /* Label styling */
+        label {
+            font-weight: bold;
+            color: #ffffff;
+            display: block;
+            margin: 12px 0 5px;
+            font-size: 1.1em;
+        }
+
+        /* Input styling */
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0 20px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Input focus effect */
+        input[type="number"]:focus, input[type="text"]:focus {
+            border-color: #007ACC;
+            outline: none;
+        }
+
+        /* Button container to center the button */
+        .button-container {
+            text-align: center;
+        }
+
+        /* Button styling */
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            background-color: #007ACC;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #005999;
+            transform: scale(1.05);
+        }
+
+        /* Result display styling */
+        #result {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8f5e9;
+            color: #333;
+            font-size: 1.3em;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 3%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            form {
+                padding: 20px;
+                margin: 15px auto;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+
+            #result {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+    <title>Carbon Emission Calculator</title>
+</head>
+<body>
+    <h1>Calculate Your Carbon Emission</h1>
+    <form action="/calculator" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="elec">Electricity (kWh)</label>
+        <input type="number" id="elec" name="Electricity" placeholder="Enter daily electricity consumption" required>
+
+        <label for="pet">Petrol (liters)</label>
+        <input type="number" id="pet" name="Petrol" placeholder="Enter daily petrol consumption" required>
+
+        <label for="diesel">Diesel (liters)</label>
+        <input type="number" id="diesel" name="Diesel" placeholder="Enter daily diesel consumption" required>
+
+        <label for="water">Wastewater (cubic meters)</label>
+        <input type="number" id="water" name="Wastewater" placeholder="Enter daily wastewater volume" required>
+
+        <label for="gas">Natural Gas (cubic meters)</label>
+        <input type="number" id="gas" name="Gas" placeholder="Enter daily gas consumption" required>
+
+        <div class="button-container">
+            <button type="submit">Calculate</button>
+        </div>
+    </form>
+
+    {% if total_emissions is not none %}
+        <div id="result">
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Total Daily Carbon Emissions:</strong> {{ total_emissions }} kg CO₂</p>
+        </div>
+    {% endif %}
+</body>
+</html>
