@@ -4,7 +4,7 @@ import plotly.express as px
 import pandas as pd
 
 app = Flask(__name__)
-app.secret_key = b'\xf0\xf1s\x9cZ\x11Oa\x81\xc7\xfbU;\x8d\x03\xec$+\x8f1\xf0P\x0eI'  # Secret key for flash messages
+
 
 # MySQL connection settings
 db_config = {
