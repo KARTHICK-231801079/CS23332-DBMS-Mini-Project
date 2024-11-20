@@ -9,9 +9,9 @@ app = Flask(__name__)
 # MySQL connection settings
 db_config = {
     'host': 'localhost',
-    'user': 'root',  # Replace with your MySQL username
-    'password': 'rkarthih279@',  # Replace with your MySQL password
-    'database': 'carbon_emission'  # Replace with your database name
+    'user': '',  # Replace with your MySQL username
+    'password': '',  # Replace with your MySQL password
+    'database': ''  # Replace with your database name
 }
 
 @app.route('/')
